@@ -1,0 +1,39 @@
+.footer {
+	display: grid;
+	align-items: center;
+
+	height: 72px;
+	padding: 25px 32px;
+
+	color: var(--white);
+
+	background-color: var(--primary);
+
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 22px;
+	grid-template-columns: 1fr auto auto;
+	gap: 40px;
+}
+
+.footer a:hover {
+	color: var(--grey-light);
+}
+
+@media (max-width: 992px) {
+	.footer {
+		padding: 15px 16px;
+		gap: 15px;
+	}
+}
+
+@media (max-width: 768px) {
+	.footer {
+		display: grid;
+
+		height: auto;
+		padding: 15px 16px;
+		grid-template-columns: minmax(320px, 1fr);
+		gap: 10px;
+	}
+}
