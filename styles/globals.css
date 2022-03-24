@@ -21,7 +21,9 @@ a {
 
 :root {
 	--black: #3B434E;
+	--grey-dark: #787D85;
 	--grey: #B3C0D9;
+	--grey-mid-light: #DFDFDF;
 	--grey-light: #EBEBEB;
 	--white: white;
 	--primary: #7653FC;

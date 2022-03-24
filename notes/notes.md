@@ -50,3 +50,28 @@ npm install eslint-plugin-react-hooks --save-dev
 tabindex
 
 live server
+
+ссылки на переменные внутри .env MY_HOST=http://$MY_HOSTNAME:$MY_PORT
+на сервере доступны все переменные
+на клиенте только с префиксом NEXT_PUBLIC_
+для тестов можно загрузить их отдельно из @next/env
+
+SSR
+рендер на сервере на каждый запрос - высокая нагрузка, нужно использовать кэширование
+чтраница полностью рабочая только после исполнения js
+более сложная настройка
+полная перезагрузка страницы при смене роута
+SEO friendly
+First Contentful Paint
+огромный прирост производительности на слабых устройствах (performance)
+
+Lighthouse
+
+https://courses-top.ru/api/top-page/find
+{
+"firstCategory": 0
+}
+
+**axios** хорошо типизирована
+
+**http://json2ts.com/**

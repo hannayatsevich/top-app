@@ -1,7 +1,30 @@
 import {Button, Htag, Paragraph, Rating, Tag} from '../components';
 import {withLayout} from "../layouts/default/Layout";
+import {GetStaticProps} from "next";
+import React from "react";
+import axios from "axios";
+import {IMenuItem} from "../interfaces/menu.interface";
+import {TopLevelCategory} from "../interfaces/page.interface";
 
-function Home(): JSX.Element {
+interface HomePageProps extends Record<string, unknown> {
+    menu: IMenuItem[];
+    firstCategory: TopLevelCategory;
+}
+
+export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
+    const firstCategory = 0;
+    const {data: menu} = await axios.post<IMenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
+        firstCategory
+    });
+    return {
+        props: {
+            menu,
+            firstCategory
+        }
+    };
+};
+
+const Home: React.FC<HomePageProps> = () => {
   return (
     <>
       <Htag tag="h1">Текст</Htag>
@@ -17,6 +40,6 @@ function Home(): JSX.Element {
       <Rating rating={3}/>
     </>
   );
-}
+};
 
 export default withLayout(Home);
