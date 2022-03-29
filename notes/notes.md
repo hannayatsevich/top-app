@@ -75,3 +75,5 @@ https://courses-top.ru/api/top-page/find
 **axios** хорошо типизирована
 
 **http://json2ts.com/**
+**https://regex101.com/**
+**https://www.npmjs.com/package/html-react-parser**

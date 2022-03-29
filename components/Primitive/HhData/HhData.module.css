@@ -1,0 +1,82 @@
+.hh-vacancies {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	gap: 30px;
+}
+
+.hh-count-card {
+	padding: 20px;
+
+	text-align: center;
+}
+
+.hh-title {
+	margin-bottom: 10px;
+
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 27px;
+}
+
+.hh-count {
+	color: var(--primary);
+
+	font-size: 36px;
+	font-weight: 700;
+	line-height: 49px;
+}
+
+.hh-salaries {
+	display: grid;
+
+	padding: 20px;
+
+	text-align: center;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.hh-salary-level:not(:last-child) {
+	border-right: 1px solid var(--grey-light);
+}
+
+.hh-salary {
+	margin-bottom: 10px;
+
+	font-size: 26px;
+	font-weight: 700;
+	line-height: 35px;
+}
+
+.hh-rate {
+	display: grid;
+
+	align-items: center;
+
+	justify-content: center;
+	gap: 10px;
+	grid-template-columns: repeat(3, auto);
+}
+
+.rate-filled circle {
+	fill: var(--red);
+}
+
+@media (max-width: 1200px) {
+	.hh-vacancies {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 578px) {
+	.hh-salaries {
+		grid-template-columns: 1fr;
+		gap: 20px 0;
+	}
+
+	.hh-salary-level:not(:last-child) {
+		padding-bottom: 20px;
+
+		border-right: none;
+		border-bottom: 1px solid var(--grey-light);
+	}
+}

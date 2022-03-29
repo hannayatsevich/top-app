@@ -1,4 +1,4 @@
-import React, {createContext, PropsWithChildren, useState} from "react";
+import React, {createContext, PropsWithChildren, useEffect, useState} from "react";
 import {IMenuItem} from "../interfaces/menu.interface";
 import {TopLevelCategory} from "../interfaces/page.interface";
 
@@ -15,12 +15,12 @@ export const AppContext = createContext<IAppContext>({
 
 export const AppContextProvider = ({menu, firstCategory,children}: PropsWithChildren<IAppContext>): JSX.Element => {
     const [menuState, setMenuState] = useState<IMenuItem[]>(menu);
-    const setMenu = (newMenu: IMenuItem[]): void => {
-        setMenuState(newMenu);
-    };
+    useEffect(() => {
+        setMenuState(menu);
+    },[menu]);
 
     return (
-        <AppContext.Provider value={{menu: menuState, firstCategory, setMenu}}>
+        <AppContext.Provider value={{menu: menuState, firstCategory, setMenu: setMenuState}}>
             {children}
         </AppContext.Provider>
     );

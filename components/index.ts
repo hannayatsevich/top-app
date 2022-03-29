@@ -2,8 +2,13 @@ export * from './Layout/Header/Header';
 export * from './Layout/Sidebar/Sidebar';
 export * from './Layout/Footer/Footer';
 
-export * from './Htag/Htag';
-export * from './Button/Button';
-export * from './Paragraph/Paragraph';
-export * from './Tag/Tag';
-export * from './Rating/Rating';
+export * from './Page/TopPageComponent/TopPageComponent';
+
+export * from './Primitive/Htag/Htag';
+export * from './Primitive/Button/Button';
+export * from './Primitive/Paragraph/Paragraph';
+export * from './Primitive/Tag/Tag';
+export * from './Primitive/Rating/Rating';
+export * from './Primitive/Card/Card';
+export * from './Primitive/HhData/HhData';
+export * from './Primitive/Sort/Sort';

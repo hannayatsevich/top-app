@@ -1,0 +1,37 @@
+.sort {
+	display: flex;
+
+	flex-wrap: wrap;
+
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 22px;
+}
+
+.sort-item {
+	display: flex;
+
+	align-items: center;
+
+	cursor: pointer;
+}
+
+.sort-item:not(:last-child) {
+	margin-right: 25px;
+}
+
+.sort-item svg {
+	display: none;
+
+	margin-right: 8px;
+}
+
+.active {
+	color: var(--primary);
+
+	font-weight: 700;
+}
+
+.active svg {
+	display: inline-block;
+}

@@ -1,7 +1,3 @@
-.menu {
-
-}
-
 .menu-first-level {
 	display: grid;
 
@@ -49,10 +45,6 @@
 .menu-second-level-active,
 .menu-second-level:hover {
 	color: var(--black);
-}
-
-.menu-second-level-block {
-
 }
 
 .menu-third-level {

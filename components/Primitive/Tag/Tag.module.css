@@ -29,7 +29,7 @@
 	color: var(--white);
 	background: var(--red-bright);
 
-	font-weight: bold;
+	font-weight: 600;
 }
 
 .tag-grey {
