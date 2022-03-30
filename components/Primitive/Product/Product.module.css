@@ -1,0 +1,316 @@
+.product {
+	display: grid;
+
+	grid-template-columns: [start] 70px [logoend] 30px [titlestart] calc(50% - 100px) [middle] 1fr [pricestart] auto [priceend]40px [creditstart] auto [creditend] 40px [ratestart] auto [end];
+
+	margin-bottom: 30px;
+	padding: 30px;
+}
+
+.logo {
+	grid-column: start / logoend;
+	grid-row: 1 / span 2;
+}
+
+.logo img {
+	max-width: 70px;
+	max-height: 70px;
+
+	border-radius: 5px;
+}
+
+.title {
+	grid-column: titlestart / middle;
+
+	align-self: flex-end;
+}
+
+.price {
+	display: flex;
+	align-items: center;
+	align-self: flex-end;
+
+	white-space: nowrap;
+
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 27px;
+	grid-column: pricestart / priceend;
+}
+
+.price-tag {
+	margin-left: 5px;
+}
+
+.credit {
+	align-self: flex-end;
+
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 27px;
+	grid-column: creditstart / creditend;
+}
+
+.perm {
+	font-size: 12px;
+}
+
+.rating {
+	grid-column: ratestart / end;
+
+	align-self: flex-end;
+
+	white-space: nowrap;
+}
+
+.categories {
+	grid-column: titlestart / middle;
+}
+
+.category {
+	margin-top: 5px;
+}
+
+.price-title {
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 19px;
+	grid-column: pricestart / priceend;
+}
+
+.credit-title {
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 19px;
+	grid-column: creditstart / creditend;
+}
+
+.rate-title {
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 19px;
+	grid-column: ratestart / end;
+}
+
+.description {
+	margin-bottom: 20px;
+
+	font-size: 16px;
+
+	font-weight: 400;
+	line-height: 24px;
+	grid-column: start / end;
+}
+
+.characteristics {
+	grid-column: start / middle;
+
+	padding-right: 60px;
+}
+
+.characteristic {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.characteristic-title {
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 32px;
+}
+
+.characteristic-divider {
+	flex-grow: 1;
+
+	margin: 0 12px;
+
+	border-bottom: 1px dashed var(--grey-light);
+}
+
+.advantages-disadvantages {
+	grid-column: middle / end;
+}
+
+.advantages-disadvantages-title {
+	margin-bottom: 5px;
+
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 22px;
+}
+
+.advantages {
+	padding-left: 15px;
+
+	border-left: 2px solid var(--green);
+	border-radius: 2px;
+}
+
+.advantages:not(:last-child) {
+	margin-bottom: 20px;
+}
+
+.disadvantages {
+	padding-left: 15px;
+
+	border-left: 2px solid var(--red-bright);
+	border-radius: 2px;
+}
+
+.buttons {
+	grid-column: start / end;
+
+	display: grid;
+	grid-template-columns: auto auto;
+	gap: 30px;
+
+	justify-content: flex-start;
+}
+
+.divider,
+.divider2 {
+	margin: 20px 0;
+	grid-column: start / end;
+}
+
+@media (max-width: 1320px) {
+	.product {
+
+		grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
+
+		grid-template-areas:
+			"logo . title title title title title"
+			"logo . categories categories categories categories categories"
+			"price price price . credit . rating"
+			"pricetitle pricetitle pricetitle . credittitle . ratingtitle"
+			"divider divider divider divider divider divider divider"
+			"description description description description description description description"
+			"characteristics characteristics characteristics characteristics characteristics characteristics characteristics"
+			"advdisadv advdisadv advdisadv advdisadv advdisadv advdisadv advdisadv"
+			"divider2 divider2 divider2 divider2 divider2 divider2 divider2"
+			"buttons buttons buttons buttons buttons buttons buttons";
+	}
+
+	.logo {
+		grid-area: logo;
+
+		margin-bottom: 10px;
+	}
+
+	.title {
+		grid-area: title;
+	}
+
+	.price {
+		grid-area: price;
+	}
+
+	.credit {
+		grid-area: credit;
+	}
+
+	.rating {
+		grid-area: rating;
+	}
+
+	.categories {
+		grid-area: categories;
+
+		margin-bottom: 20px;
+	}
+
+	.price-title {
+		grid-area: pricetitle;
+	}
+
+	.credit-title {
+		grid-area: credittitle;
+	}
+
+	.rate-title {
+		grid-area: ratingtitle;
+	}
+
+	.description {
+		grid-area: description;
+	}
+
+	.characteristics {
+		margin-bottom: 20px;
+		padding-right: 0;
+		grid-area: characteristics;
+	}
+
+	.advantages-disadvantages {
+		grid-area: advdisadv;
+	}
+
+	.buttons {
+		grid-area: buttons;
+	}
+
+	.divider {
+		grid-area: divider;
+	}
+
+	.divider2 {
+		grid-area: divider2;
+	}
+}
+
+@media (max-width: 600px), (min-width: 769px) and (max-width: 850px) {
+	.product {
+
+		grid-template-columns: 70px 30px  1fr;
+
+		grid-template-areas:
+			"logo . title "
+			"logo . categories "
+			"pricetitle . price "
+			"credittitle . credit"
+			"ratingtitle . rating"
+			"divider divider divider"
+			"description description description"
+			"characteristics characteristics characteristics"
+			"advdisadv advdisadv advdisadv"
+			"divider2 divider2 divider2"
+			"buttons buttons buttons";
+	}
+
+	.price-title,
+	.credit-title,
+	.rate-title {
+		align-self: center;
+	}
+}
+
+@media (max-width: 480px) {
+	.product {
+
+		grid-template-columns: 1fr;
+
+		grid-template-areas:
+			"logo"
+			"title"
+			"categories"
+			"price"
+			"pricetitle"
+			"credit"
+			"credittitle"
+			"rating"
+			"ratingtitle"
+			"divider"
+			"description"
+			"characteristics"
+			"advdisadv"
+			"divider2"
+			"buttons";
+	}
+
+	.price-title,
+	.credit-title,
+	.rate-title {
+		margin-bottom: 10px;
+	}
+}

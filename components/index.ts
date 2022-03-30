@@ -12,3 +12,8 @@ export * from './Primitive/Rating/Rating';
 export * from './Primitive/Card/Card';
 export * from './Primitive/HhData/HhData';
 export * from './Primitive/Sort/Sort';
+export * from './Primitive/Input/Input';
+export * from './Primitive/Textarea/Textarea';
+export * from './Primitive/Search/Search';
+export * from './Primitive/Product/Product';
+export * from './Primitive/Divider/Divider';

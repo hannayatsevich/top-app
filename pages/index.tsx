@@ -1,4 +1,4 @@
-import {Button, Htag, Paragraph, Rating, Tag} from '../components';
+import {Button, Htag, Input, Paragraph, Rating, Tag, Textarea} from '../components';
 import {withLayout} from "../layouts/default/Layout";
 import {GetStaticProps} from "next";
 import React from "react";
@@ -38,6 +38,8 @@ const Home: React.FC<HomePageProps> = () => {
       <Tag size={'m'} color={'red'} href={'/'}>Текст</Tag>
       <Rating rating={3} isEditable={true} setRating={(i: number):void => console.log(i)}/>
       <Rating rating={3}/>
+      <Input placeholder={'test'} />
+      <Textarea placeholder={'test'} />
     </>
   );
 };

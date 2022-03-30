@@ -7,7 +7,7 @@ export const Button = ({styleType = 'primary', arrow = 'none', children, classNa
     return (
         <button
             {...props}
-            className={classnames(styles.button, className, {
+            className={classnames(className, styles.button, {
                 [styles.primary]: styleType === 'primary',
                 [styles.ghost]: styleType === 'ghost'
             })}

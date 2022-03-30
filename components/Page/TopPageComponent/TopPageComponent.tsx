@@ -5,9 +5,9 @@ import styles from './TopPageCompoent.module.css';
 import {HhData} from "../../Primitive/HhData/HhData";
 import {TopLevelCategory} from "../../../interfaces/page.interface";
 import {Advantages} from "../../Primitive/Advantages/Advantages";
-import {Sort} from "../../../components";
+import {Product, Sort} from "../../../components";
 import {SortEnum} from "../../Primitive/Sort/Sort.props";
-import {useReducer} from "react";
+import {useEffect, useReducer} from "react";
 import {sortReducer} from "../../Primitive/Sort/sort.reducer";
 
 
@@ -20,6 +20,10 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
         dispatch({type: sort});
     };
 
+    useEffect(() => {
+        dispatch({type: 'UPDATE_PRODUCTS', payload: products});
+    }, [products]);
+
     return (
         <div>
             <div className={styles.header}>
@@ -28,7 +32,7 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
                 <Sort sort={sort} setSort={setSortValue}/>
             </div>
             <div>
-                {sortedProducts.map(product => <div key={product._id}>{product.title}</div>)}
+                {sortedProducts.map(product => <Product key={product._id} product={product}/>)}
             </div>
             <div className={styles['hh-header']}>
                 <Htag tag={'h2'}>{`Вакансии - ${category}`}</Htag>
