@@ -1,0 +1,59 @@
+.review {
+	display: grid;
+	grid-template-columns: 30px 1fr auto auto;
+	grid-template-areas:
+		"icon title date rating"
+		"description description description description"
+		"divider divider divider divider";
+	gap: 15px 10px;
+
+	align-items: center;
+
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.review:not(:last-child) {
+	margin-bottom: 20px;
+}
+
+.icon {
+	grid-area: icon;
+}
+
+.title {
+	grid-area: title;
+}
+
+.name {
+	font-weight: 700;
+}
+
+.date {
+	grid-area: date;
+}
+
+.rating {
+	grid-area: rating;
+}
+
+.description {
+	grid-area: description;
+}
+
+.divider {
+	grid-area: divider;
+}
+
+@media (max-width: 992px) {
+	.review {
+		grid-template-columns: 30px auto 1fr;
+		grid-template-areas:
+			"icon title title"
+			"date date rating"
+			"description description description"
+			"divider divider divider";
+		gap: 10px;
+	}
+}

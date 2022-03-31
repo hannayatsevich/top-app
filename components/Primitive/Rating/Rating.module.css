@@ -1,3 +1,15 @@
+.rating {
+	position: relative;
+
+	white-space: nowrap;
+
+	line-height: 1;
+}
+
+.rating-error svg {
+	stroke: var(--red-bright);
+}
+
 .star svg {
 	margin-right: 5px;
 }
@@ -8,4 +20,12 @@
 
 .editable {
 	cursor: pointer;
+}
+
+.error {
+	position: absolute;
+	bottom: -25px;
+	left: 0;
+
+	color: var(--red-bright);
 }

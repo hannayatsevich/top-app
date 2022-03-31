@@ -1,4 +1,9 @@
+.textarea-wrapper {
+	position: relative;
+}
+
 .textarea {
+	width: 100%;
 	min-height: 76px;
 
 	padding: 7px 15px;
@@ -25,4 +30,17 @@
 .textarea:focus,
 .textarea:active {
 	outline: 1px solid var(--primary);
+}
+
+.textarea-error,
+.textarea-error:focus {
+	outline: 1px solid var(--red-bright);
+}
+
+.error {
+	position: absolute;
+	bottom: -18px;
+	left: 0;
+
+	color: var(--red-bright);
 }

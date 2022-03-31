@@ -1,9 +1,12 @@
+.product-wrapper:not(:first-child) {
+	margin-top: 30px;
+}
+
 .product {
 	display: grid;
 
 	grid-template-columns: [start] 70px [logoend] 30px [titlestart] calc(50% - 100px) [middle] 1fr [pricestart] auto [priceend]40px [creditstart] auto [creditend] 40px [ratestart] auto [end];
 
-	margin-bottom: 30px;
 	padding: 30px;
 }
 
@@ -59,8 +62,6 @@
 	grid-column: ratestart / end;
 
 	align-self: flex-end;
-
-	white-space: nowrap;
 }
 
 .categories {
@@ -90,6 +91,10 @@
 	font-weight: 300;
 	line-height: 19px;
 	grid-column: ratestart / end;
+}
+
+.rate-title a {
+	color: var(--primary);
 }
 
 .description {
@@ -168,10 +173,21 @@
 	justify-content: flex-start;
 }
 
-.divider,
-.divider2 {
+.divider {
 	margin: 20px 0;
 	grid-column: start / end;
+}
+
+.reviews-closed {
+	overflow: hidden;
+
+	max-height: 0;
+	padding: 0;
+}
+
+.reviews-opened {
+	max-height: unset;
+	padding: 30px;
 }
 
 @media (max-width: 1320px) {
@@ -250,7 +266,7 @@
 		grid-area: buttons;
 	}
 
-	.divider {
+	.divider1 {
 		grid-area: divider;
 	}
 

@@ -5,7 +5,7 @@ import {Card} from "../Card/Card";
 import RateIcon from '../../../public/help-icons/rate.svg';
 import {getRuPrice} from "../../../helpers";
 
-export const HhData = ({count, juniorSalary, middleSalary, seniorSalary, className, ...props}: HhDataProps):JSX.Element => {
+export const HhData = ({count, juniorSalary, middleSalary, seniorSalary, className, updatedAt,  ...props}: HhDataProps):JSX.Element => {
     return (
         <div className={classnames(className, styles['hh-vacancies'])} {...props}>
             <Card className={styles['hh-count-card']}>

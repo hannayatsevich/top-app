@@ -17,3 +17,5 @@ export * from './Primitive/Textarea/Textarea';
 export * from './Primitive/Search/Search';
 export * from './Primitive/Product/Product';
 export * from './Primitive/Divider/Divider';
+export * from './Primitive/Review/Review';
+export * from './Primitive/ReviewForm/ReviewForm';

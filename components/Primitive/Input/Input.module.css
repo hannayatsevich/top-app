@@ -1,3 +1,7 @@
+.input-wrapper {
+	position: relative;
+}
+
 .input {
 	height: 36px;
 
@@ -25,4 +29,17 @@
 .input:focus,
 .input:active {
 	outline: 1px solid var(--primary);
+}
+
+.input-error,
+.input-error:focus {
+	outline: 1px solid var(--red-bright);
+}
+
+.error {
+	position: absolute;
+	bottom: -25px;
+	left: 0;
+
+	color: var(--red-bright);
 }

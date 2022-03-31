@@ -10,6 +10,20 @@ export const getRuPrice = (price: number): string => {
     }).format(price);
 };
 
+export const getRuDate = (date: Date): string => {
+    return new Intl.DateTimeFormat('ru-RU', {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+    }).format(date);
+};
+
+export const getRuYear = (date: Date): string => {
+    return new Intl.DateTimeFormat('ru-RU', {
+        year: "numeric"
+    }).format(date);
+};
+
 
 export const getWord = (number: number, titles: [string, string, string]): string => {
     const cases = [2, 0, 1, 1, 1, 2];

@@ -1,9 +1,20 @@
 import {TextareaProps} from "./Textarea.props";
 import styles from './Textarea.module.css';
 import classnames from "classnames";
+import React, {ForwardedRef, forwardRef} from "react";
 
-export const Textarea = ({isEditable = true, className, ...props}: TextareaProps):JSX.Element => {
+export const Textarea = forwardRef(({isEditable = true, error, className, ...props}: TextareaProps, ref: ForwardedRef<HTMLTextAreaElement>):JSX.Element => {
     return (
-        <textarea className={classnames(className, styles.textarea)} {...props} disabled={!isEditable}/>
+        <div className={classnames(className, styles['textarea-wrapper'])}>
+            <textarea
+                className={classnames(styles.textarea, {
+                    [styles['textarea-error']]: !!error
+                })}
+                disabled={!isEditable}
+                ref={ref}
+                {...props}
+            />
+            {!!error && !!error.message && <div className={styles.error}>{error.message}</div>}
+        </div>
     );
-};
+});

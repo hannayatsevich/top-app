@@ -5,6 +5,7 @@ import {IMenuItem} from "../../interfaces/menu.interface";
 import {TopLevelCategory} from "../../interfaces/page.interface";
 import axios from "axios";
 import {firstLevelMenu} from "../../constants";
+import {API} from "../../helpers/api";
 
 interface TypePageProps extends Record<string, unknown> {
     menu: IMenuItem[];
@@ -24,7 +25,7 @@ export const getStaticProps: GetStaticProps<TypePageProps> = async ({params}) =>
         };
 
     try {
-        const {data: menu} = await axios.post<IMenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
+        const {data: menu} = await axios.post<IMenuItem[]>(API.toppage.find, {
             firstCategory: firstLevelMenuItem.id
         });
 

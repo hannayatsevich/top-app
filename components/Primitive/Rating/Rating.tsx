@@ -2,9 +2,9 @@ import {RatingProps} from "./Rating.props";
 import StarIcon from "../../../public/help-icons/star.svg";
 import styles from './Rating.module.css';
 import classnames from "classnames";
-import {Fragment, useEffect, useState, KeyboardEvent} from "react";
+import React, {Fragment, useEffect, useState, KeyboardEvent, forwardRef, ForwardedRef} from "react";
 
-export const Rating = ({isEditable = false, rating, setRating, ...props}: RatingProps):JSX.Element => {
+export const Rating = forwardRef(({isEditable = false, rating, setRating, error, className, ...props}: RatingProps, ref: ForwardedRef<HTMLDivElement>):JSX.Element => {
     const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
 
     const constructRating = (currentRating: number):void => {
@@ -36,8 +36,15 @@ export const Rating = ({isEditable = false, rating, setRating, ...props}: Rating
     }, [rating]);
 
     return (
-        <div {...props}>
+        <div
+            className={classnames(className, styles.rating, {
+                [styles['rating-error']]: !!error
+            })}
+            ref={ref}
+            {...props}
+        >
             {ratingArray.map((ratingElement: JSX.Element, index: number) => <Fragment key={index}>{ratingElement}</Fragment>)}
+            {!!error && !!error.message && <div className={styles.error}>{error.message}</div>}
         </div>
     );
-};
+});

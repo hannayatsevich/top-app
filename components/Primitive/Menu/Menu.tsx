@@ -38,7 +38,7 @@ export const Menu: React.FC<MenuProps> = () => {
     const buildSecondLevelMenu = (menuFirstLevel: FirstLevelMenuItem): JSX.Element => (
         <div className={classnames(styles['menu-first-level-block'])}>
             {menu.map(menuItem => {
-                const isThirdLevelOpened = menuItem.isOpened || menuItem.pages.some( page => router.asPath === `/${menuFirstLevel.route}/${page.alias}`);
+                const isThirdLevelOpened = menuItem.isOpened || menuItem.pages.some( page => router.asPath.split('#')[0] === `/${menuFirstLevel.route}/${page.alias}`);
                 return (
                     <div key={menuItem._id.secondCategory}>
                         <div
@@ -61,7 +61,7 @@ export const Menu: React.FC<MenuProps> = () => {
                 <Link key={menuItem._id} href={`/${route}/${menuItem.alias}`}>
                     <a
                         className={classnames(styles['menu-third-level'], {
-                            [styles['menu-third-level-active']]: router.asPath === `/${route}/${menuItem.alias}`
+                            [styles['menu-third-level-active']]: router.asPath.split('#')[0] === `/${route}/${menuItem.alias}`
                         })}
                     >
                         {menuItem.category}
