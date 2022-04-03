@@ -3,11 +3,29 @@ import styles from './Product.module.css';
 import {Htag, Card, Button, Tag, Rating, Divider, Review, ReviewForm} from "../../../components";
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRef, useState} from "react";
+import {ForwardedRef, forwardRef, useRef, useState} from "react";
 import {getRuPrice, getWord} from "../../../helpers";
 import classnames from "classnames";
+import {motion} from 'framer-motion';
 
-export const Product = ({product, className, ...props}: ProductProps):JSX.Element => {
+export const Product = motion(forwardRef(({product, className, ...props}: ProductProps, ref: ForwardedRef<HTMLDivElement>):JSX.Element => {
+    const reviewVariants = {
+        visible: {
+            height: 'auto',
+            opacity: 1,
+            transition: {
+                duration: 0.5
+            }
+        },
+        hidden: {
+            height: 0,
+            opacity: 0,
+            transition: {
+                duration: 0.5
+            }
+        }
+    };
+
     const {_id, image, title, oldPrice, price, credit, reviewCount, description, characteristics, advantages, disAdvantages, reviewAvg, initialRating, categories, tags, reviews} = product;
     const [isReviewsOpened, setIsReviewsOpened] = useState(false);
     const reviewRef = useRef<HTMLDivElement>(null);
@@ -22,7 +40,7 @@ export const Product = ({product, className, ...props}: ProductProps):JSX.Elemen
     };
 
     return (
-        <div className={classnames(className, styles['product-wrapper'])} {...props}>
+        <div className={classnames(className, styles['product-wrapper'])} {...props} ref={ref}>
             <Card className={styles.product}>
                 <div className={styles.logo}>
                     <Image
@@ -73,20 +91,25 @@ export const Product = ({product, className, ...props}: ProductProps):JSX.Elemen
                 <Divider className={classnames(styles.divider, styles.divider2)}/>
                 <div className={styles.buttons}>
                     <Link href={product.link}><a><Button>Узнать подробнее</Button></a></Link>
-                    <Button styleType={'ghost'} arrow={isReviewsOpened ? 'down' : 'right'} onClick={(): void => setIsReviewsOpened(state => !state)}>Читать отзывы</Button>
+                    <Button tabIndex={-1} styleType={'ghost'} arrow={isReviewsOpened ? 'down' : 'right'} onClick={(): void => setIsReviewsOpened(state => !state)}>Читать отзывы</Button>
                 </div>
             </Card>
-            <Card
-                className={classnames(className, styles.reviews, {
-                    [styles['reviews-closed']]: !isReviewsOpened,
-                    [styles['reviews-opened']]: isReviewsOpened
-                })}
-                color={'blue'}
-                ref={reviewRef}
+            <motion.div
+                className={styles['reviews-wrapper']}
+                initial={isReviewsOpened ? 'visible' : 'hidden'}
+                animate={isReviewsOpened ? 'visible' : 'hidden'}
+                variants={reviewVariants}
             >
-                {reviews.map(review => <Review key={review._id} review={review}/>)}
-                <ReviewForm productId={_id}/>
-            </Card>
+                <Card
+                    className={styles.reviews}
+                    color={'blue'}
+                    ref={reviewRef}
+                >
+                    {reviews.map(review => <Review key={review._id} review={review}/>)}
+                    <ReviewForm productId={_id}/>
+                </Card>
+            </motion.div>
+
         </div>
     );
-};
+}));

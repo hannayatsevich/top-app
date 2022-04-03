@@ -6,7 +6,7 @@ import {HhData} from "../../Primitive/HhData/HhData";
 import {TopLevelCategory} from "../../../interfaces/page.interface";
 import {Advantages} from "../../Primitive/Advantages/Advantages";
 import {Product, Sort} from "../../../components";
-import {SortEnum} from "../../Primitive/Sort/Sort.props";
+import {PureSortEnum, SortEnum} from "../../Primitive/Sort/Sort.props";
 import {useEffect, useReducer} from "react";
 import {sortReducer} from "../../Primitive/Sort/sort.reducer";
 
@@ -14,14 +14,14 @@ import {sortReducer} from "../../Primitive/Sort/sort.reducer";
 export const TopPageComponent = ({page, products, firstCategory}: TopPageComponentProps):JSX.Element => {
     const {title, hh, advantages = [], category, tags, seoText} = page;
 
-    const [{sort, products: sortedProducts}, dispatch] = useReducer(sortReducer, {sort: SortEnum.Rating, products:  products || []});
+    const [{sort, products: sortedProducts}, dispatch] = useReducer(sortReducer, {sort: SortEnum.Reset, products:  products || []});
     
-    const setSortValue = (sort: SortEnum): void => {
+    const setSortValue = (sort: PureSortEnum): void => {
         dispatch({type: sort});
     };
 
     useEffect(() => {
-        dispatch({type: 'UPDATE_PRODUCTS', payload: products});
+        dispatch({type: SortEnum.Reset, payload: products});
     }, [products]);
 
     return (
@@ -32,7 +32,7 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
                 <Sort sort={sort} setSort={setSortValue}/>
             </div>
             <div>
-                {sortedProducts.map(product => <Product key={product._id} product={product}/>)}
+                {sortedProducts.map(product => <Product key={product._id} product={product} layout/>)}
             </div>
             <div className={styles['hh-header']}>
                 <Htag tag={'h2'}>{`Вакансии - ${category}`}</Htag>

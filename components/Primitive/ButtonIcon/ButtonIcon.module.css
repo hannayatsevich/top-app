@@ -1,0 +1,46 @@
+.button {
+	display: inline-block;
+
+	width: 40px;
+	height: 40px;
+
+	padding: 11px;
+
+	cursor: pointer;
+
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
+}
+
+.primary {
+	background-color: var(--primary);
+}
+
+.primary .icon {
+	fill: var(--white);
+}
+
+.primary:hover {
+	background-color: var(--primary-hover);
+}
+
+.primary:hover .icon {
+	fill: var(--white);
+}
+
+.white {
+	background-color: var(--white);
+}
+
+.white .icon {
+	fill: var(--primary);
+}
+
+.white:hover {
+	background-color: var(--primary);
+}
+
+.white:hover .icon {
+	fill: var(--white);
+}

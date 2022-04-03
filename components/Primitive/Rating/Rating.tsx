@@ -1,5 +1,5 @@
 import {RatingProps} from "./Rating.props";
-import StarIcon from "../../../public/help-icons/star.svg";
+import StarIcon from "./star.svg";
 import styles from './Rating.module.css';
 import classnames from "classnames";
 import React, {Fragment, useEffect, useState, KeyboardEvent, forwardRef, ForwardedRef} from "react";

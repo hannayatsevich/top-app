@@ -37,11 +37,11 @@
 			"main"
 			"footer";
 
-		gap: 30px 50px;
+		gap: 10px;
 	}
 
 	.header {
-		display: block;
+		display: grid;
 	}
 
 	.sidebar {

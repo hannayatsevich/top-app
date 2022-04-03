@@ -1,4 +1,4 @@
-import {Button, Htag, Input, Paragraph, Rating, Tag, Textarea} from '../components';
+import {Button, ButtonIcon, Htag, Input, Paragraph, Rating, Tag, Textarea, Up} from '../components';
 import {withLayout} from "../layouts/default/Layout";
 import {GetStaticProps} from "next";
 import React from "react";
@@ -40,6 +40,13 @@ const Home: React.FC<HomePageProps> = () => {
       <Rating rating={3}/>
       <Input placeholder={'test'} />
       <Textarea placeholder={'test'} />
+      <Up />
+      <ButtonIcon icon={'up'}/>
+      <ButtonIcon icon={'close'}/>
+      <ButtonIcon icon={'menu'}/>
+      <ButtonIcon icon={'up'} styleType={'white'}/>
+      <ButtonIcon icon={'close'} styleType={'white'}/>
+      <ButtonIcon icon={'menu'} styleType={'white'}/>
     </>
   );
 };

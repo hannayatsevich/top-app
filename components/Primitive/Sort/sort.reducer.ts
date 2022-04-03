@@ -1,7 +1,18 @@
 import {SortEnum} from "./Sort.props";
 import {IProductModel} from "../../../interfaces/product.interface";
 
-export type SortActions = {type: SortEnum.Rating} | {type: SortEnum.Price} | {type: 'UPDATE_PRODUCTS', payload: IProductModel[]};
+interface ISortRatingAction {
+    type: SortEnum.Rating
+}
+interface ISortPriceAction {
+    type: SortEnum.Price
+}
+interface ISortResetAction {
+    type: SortEnum.Reset,
+    payload: IProductModel[]
+}
+
+export type SortActions = ISortRatingAction | ISortPriceAction | ISortResetAction;
 
 export interface SortState {
     sort: SortEnum;
@@ -20,16 +31,16 @@ export const sortReducer = (state: SortState, action: SortActions): SortState =>
                 sort: SortEnum.Price,
                 products: [...state.products].sort((a, b) => a.price - b.price),
             };
-        case 'UPDATE_PRODUCTS':
+        case SortEnum.Reset:
             // eslint-disable-next-line no-case-declarations
-            const products = state.sort === SortEnum.Rating
-                ? [...action.payload].sort((a, b) => a.initialRating - b.initialRating)
-                : state.sort === SortEnum.Price
-                    ? [...action.payload].sort((a, b) => a.price - b.price)
-                    : [...action.payload];
+            // const products = state.sort === SortEnum.Rating
+            //     ? [...action.payload].sort((a, b) => a.initialRating - b.initialRating)
+            //     : state.sort === SortEnum.Price
+            //         ? [...action.payload].sort((a, b) => a.price - b.price)
+            //         : [...action.payload];
             return {
                 sort: state.sort,
-                products,
+                products: action.payload,
             };
         default: return state;
     }

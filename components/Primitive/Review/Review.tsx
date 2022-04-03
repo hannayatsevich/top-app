@@ -3,7 +3,7 @@ import classnames from "classnames";
 import {ReviewProps} from "./Review.props";
 import {getRuDate} from "../../../helpers";
 import {Rating, Divider} from "../../../components";
-import UserIcon from '../../../public/help-icons/user.svg';
+import UserIcon from './user.svg';
 
 export const Review = ({review, className, ...props}: ReviewProps):JSX.Element => {
     const {name, title, createdAt, rating, description} = review;

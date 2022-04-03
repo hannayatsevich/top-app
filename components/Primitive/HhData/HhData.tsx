@@ -2,7 +2,7 @@ import styles from './HhData.module.css';
 import classnames from "classnames";
 import {HhDataProps} from "./HhData.props";
 import {Card} from "../Card/Card";
-import RateIcon from '../../../public/help-icons/rate.svg';
+import RateIcon from './rate.svg';
 import {getRuPrice} from "../../../helpers";
 
 export const HhData = ({count, juniorSalary, middleSalary, seniorSalary, className, updatedAt,  ...props}: HhDataProps):JSX.Element => {

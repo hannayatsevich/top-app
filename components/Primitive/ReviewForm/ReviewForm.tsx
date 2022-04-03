@@ -2,7 +2,7 @@ import styles from './ReviewForm.module.css';
 import classnames from "classnames";
 import {ReviewFormProps} from "./ReviewForm.props";
 import {Button, Input, Rating, Textarea} from "../../../components";
-import CloseIcon from '../../../public/help-icons/close.svg';
+import CloseIcon from './close.svg';
 import {useState} from "react";
 import {Controller, useForm} from "react-hook-form";
 import {IReviewForm, IReviewResponse} from "./ReviewForm.interface";

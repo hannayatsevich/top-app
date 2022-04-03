@@ -14,6 +14,7 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
                 {children}
             </main>
             <Footer className={styles.footer}/>
+            <Up />
         </div>
     );
 };

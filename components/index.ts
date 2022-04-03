@@ -19,3 +19,5 @@ export * from './Primitive/Product/Product';
 export * from './Primitive/Divider/Divider';
 export * from './Primitive/Review/Review';
 export * from './Primitive/ReviewForm/ReviewForm';
+export * from './Primitive/Up/Up';
+export * from './Primitive/ButtonIcon/ButtonIcon';
