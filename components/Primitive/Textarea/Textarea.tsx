@@ -14,7 +14,7 @@ export const Textarea = forwardRef(({isEditable = true, error, className, ...pro
                 ref={ref}
                 {...props}
             />
-            {!!error && !!error.message && <div className={styles.error}>{error.message}</div>}
+            {!!error && !!error.message && <div className={styles.error} role={'alert'}>{error.message}</div>}
         </div>
     );
 });

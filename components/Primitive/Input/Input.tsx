@@ -14,7 +14,7 @@ export const Input = forwardRef(({isEditable = true, error, className, ...props}
                 ref={ref}
                 {...props}
             />
-            {!!error && !!error.message && <div className={styles.error}>{error.message}</div>}
+            {!!error && !!error.message && <div className={styles.error} role={'alert'}>{error.message}</div>}
         </div>
     );
 });

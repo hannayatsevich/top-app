@@ -60,14 +60,19 @@
 	top: 10px;
 	right: 10px;
 
-	cursor: pointer;
+	padding: 5px;
+
+	border: none;
+	background-color: transparent;
+
+	line-height: 1;
 }
 
-.error-success {
+.error-success svg {
 	stroke: var(--green);
 }
 
-.error-close {
+.error-close svg {
 	stroke: var(--red-bright);
 }
 

@@ -20,20 +20,22 @@ export const Search = ({className, ...props}: SearchProps):JSX.Element => {
     };
 
     return (
-        <div className={classnames(className, styles.search)} {...props}>
+        <form className={classnames(className, styles.search)} {...props} role={'search'}>
             <Input
                 className={styles.input}
                 placeholder={'Поиск...'}
                 onChange={(e: ChangeEvent<HTMLInputElement>): void => setSearchValue(e.target.value)}
                 onKeyDown={(e:KeyboardEvent<HTMLInputElement>):void => {e.code === 'Enter' && goToSearch();}}
                 value={searchValue}
+                aria-label={'Введите строку поиска'}
             />
             <Button
                 className={styles.button}
                 onClick={goToSearch}
+                aria-label={'Искать по сайту'}
             >
                 <SearchIcon/>
             </Button>
-        </div>
+        </form>
     );
 };

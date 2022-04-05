@@ -43,7 +43,7 @@
 }
 
 .tag-green {
-	color: var(--green);
+	color: var(--green-text);
 	background: var(--green-light);
 
 	font-weight: bold;

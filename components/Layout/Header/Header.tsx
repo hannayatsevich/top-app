@@ -5,24 +5,26 @@ import Logo from "../../../public/logo.svg";
 import React, {useEffect, useState} from "react";
 import {ButtonIcon} from "../../Primitive/ButtonIcon/ButtonIcon";
 import {Sidebar} from "../Sidebar/Sidebar";
-import {motion} from "framer-motion";
+import {motion, useReducedMotion} from "framer-motion";
 import {useRouter} from "next/router";
 
 export const Header = ({className, ...props}: HeaderProps):JSX.Element => {
     const router = useRouter();
     const [isOpened, setIsOpened] = useState<boolean>(false);
+    const reducedMotion = useReducedMotion();
+
     const variants = {
         opened: {
             opacity: 1,
             x: 0,
-            transition: {
+            transition: reducedMotion ? {} : {
                 stiffness: 20
             }
         },
         closed: {
-            opacity: 0,
+            opacity: reducedMotion ? 1 : 0,
             x: '100%',
-            transition: {
+            transition: reducedMotion ? {} : {
                 stiffness: 20
             }
         },
@@ -33,7 +35,7 @@ export const Header = ({className, ...props}: HeaderProps):JSX.Element => {
     }, [router]);
 
     return (
-        <header className={classnames(className, styles.header)} {...props}>
+        <header className={classnames(className, styles.header)} {...props} role={'banner'}>
             <Logo/>
             <ButtonIcon icon={'menu'} styleType={'white'} onClick={(): void => setIsOpened(true)}/>
             <motion.div

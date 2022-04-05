@@ -1,16 +1,40 @@
 import {LayoutProps} from "./Layout.props";
-import {Header, Sidebar, Footer} from "../../components";
-import React, {FunctionComponent} from "react";
+import {Header, Sidebar, Footer, Up} from "../../components";
+import React, {FunctionComponent, useState, KeyboardEvent, useRef} from "react";
 import styles from './Layout.module.css';
 import {AppContextProvider, IAppContext} from "../../contexts/app.context";
+import classnames from "classnames";
 
 export const Layout: React.FC<LayoutProps> = ({children}) => {
+    const mainRef = useRef<HTMLDivElement>(null);
+    const [isSkipLinkVisible, setIsSkipLinkVisible] = useState<boolean>(false);
+    
+    const skipContentAction = (event: KeyboardEvent): void => {
+        if(event.code === 'Enter' || event.code === 'Space') {
+            event.preventDefault(); // иначе происходит скролл при нажатии space
+            if(mainRef && mainRef.current) {
+                mainRef.current.focus();
+                setIsSkipLinkVisible(false);
+            }
+        }
+        else {
+            setIsSkipLinkVisible(false);
+        }
+    };
 
     return (
         <div className={styles['page-wrapper']}>
+            <a
+                tabIndex={1}
+                className={classnames(styles['skip-link'], {
+                    [styles['skip-link-visible']]: isSkipLinkVisible
+                })}
+                onFocus={ ():void => setIsSkipLinkVisible(true)}
+                onKeyDown={skipContentAction}
+            >Сразу к содержанию</a>
             <Header className={styles.header}/>
             <Sidebar className={styles.sidebar}/>
-            <main className={styles.main}>
+            <main className={styles.main} ref={mainRef} tabIndex={0} role={'main'}>
                 {children}
             </main>
             <Footer className={styles.footer}/>

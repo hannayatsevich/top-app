@@ -11,6 +11,24 @@
 	gap: 40px 30px;
 }
 
+.skip-link {
+	position: fixed;
+	top: 0;
+	left: 100px;
+
+	display: block;
+	overflow: hidden;
+
+	height: 0;
+
+	color: var(--white);
+	background-color: var(--primary);
+}
+
+.skip-link-visible {
+	height: auto;
+}
+
 .header {
 	display: none;
 	grid-area: header;
@@ -22,6 +40,8 @@
 
 .main {
 	grid-area: main;
+
+	outline: none;
 }
 
 .footer {

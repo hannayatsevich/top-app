@@ -1,3 +1,14 @@
+.menu-wrapper {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+.menu-item {
+	display: block;
+}
+
 .menu-first-level {
 	display: grid;
 
@@ -32,17 +43,26 @@
 .menu-second-level {
 	margin-bottom: 10px;
 
+	padding: 0;
+
 	cursor: pointer;
 	text-transform: uppercase;
 
 	color: var(--grey-dark);
+
+	border: none;
+
+	background-color: transparent;
 
 	font-size: 12px;
 	font-weight: 300;
 	line-height: 16px;
 }
 
-.menu-second-level-active,
+.menu-second-level-block {
+	overflow: hidden;
+}
+
 .menu-second-level:hover {
 	color: var(--black);
 }
@@ -54,9 +74,11 @@
 
 	color: var(--grey-dark);
 
+	outline-offset: -1px;
+
 	font-size: 14px;
 	font-weight: 500;
-	line-height: 19px;
+	line-height: 20px;
 }
 
 .menu-third-level-active,

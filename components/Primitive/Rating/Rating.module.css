@@ -10,7 +10,11 @@
 	stroke: var(--red-bright);
 }
 
-.star svg {
+.star {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
 	margin-right: 5px;
 }
 

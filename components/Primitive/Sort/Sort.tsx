@@ -6,22 +6,27 @@ import SortIcon from './sort.svg';
 export const Sort = ({sort, setSort, className, ...props}: SortProps):JSX.Element => {
     return (
         <div className={classnames(className, styles.sort)} {...props}>
-            <div
+            <div className={'hidden-element'} id={'sort'}>Сортировка</div>
+            <button
                 className={classnames(styles['sort-item'], {
                     [styles.active]: sort === SortEnum.Rating
                 })}
                 onClick={(): void => setSort(SortEnum.Rating)}
+                aria-selected={sort === SortEnum.Rating}
+                aria-labelledby={'sort rating'}
             >
-                <SortIcon/><span>По&nbsp;рейтингу</span>
-            </div>
-            <div
+                <SortIcon/><span id={'rating'}>По&nbsp;рейтингу</span>
+            </button>
+            <button
                 className={classnames(styles['sort-item'], {
                     [styles.active]: sort === SortEnum.Price
                 })}
                 onClick={(): void => setSort(SortEnum.Price)}
+                aria-selected={sort === SortEnum.Price}
+                aria-labelledby={'sort price'}
             >
-                <SortIcon/><span>По&nbsp;цене</span>
-            </div>
+                <SortIcon/><span id={'price'}>По&nbsp;цене</span>
+            </button>
         </div>
     );
 };

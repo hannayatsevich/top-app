@@ -4,7 +4,7 @@ body {
 	padding: 0;
 
 	color: var(--black);
-	background: #F5F6F8;
+	background: var(--background);
 
 	font-family: var(--font-family);
 }
@@ -19,18 +19,29 @@ a {
 	box-sizing: border-box;
 }
 
+.hidden-element {
+	position: absolute;
+
+	overflow: hidden;
+
+	width: 0;
+	height: 0;
+}
+
 :root {
+	--background: #F5F6F8;
 	--black: #3B434E;
-	--grey-dark: #787D85;
-	--grey: #B3C0D9;
+	--grey-dark: #6C7077;
+	--grey: #69748A;
 	--grey-mid-light: #DFDFDF;
 	--grey-light: #EBEBEB;
 	--white: white;
-	--primary: #7653FC;
+	--primary: #7351F5;
 	--primary-hover: #4E2DC4;
 	--red: #FC836D;
 	--red-bright: #DE0000;
 	--green: #1DC37E;
+	--green-text: #027B49;
 	--green-light: #C8F8E4;
 	--blue: #F9F8FF;
 	--font-family: "Noto Sans Display", sans-serif;

@@ -9,12 +9,14 @@ import {Product, Sort} from "../../../components";
 import {PureSortEnum, SortEnum} from "../../Primitive/Sort/Sort.props";
 import {useEffect, useReducer} from "react";
 import {sortReducer} from "../../Primitive/Sort/sort.reducer";
+import {useReducedMotion} from "framer-motion";
 
 
 export const TopPageComponent = ({page, products, firstCategory}: TopPageComponentProps):JSX.Element => {
     const {title, hh, advantages = [], category, tags, seoText} = page;
 
     const [{sort, products: sortedProducts}, dispatch] = useReducer(sortReducer, {sort: SortEnum.Reset, products:  products || []});
+    const reducedMotion = useReducedMotion();
     
     const setSortValue = (sort: PureSortEnum): void => {
         dispatch({type: sort});
@@ -28,11 +30,11 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
         <div>
             <div className={styles.header}>
                 <Htag tag={'h1'}>{title}</Htag>
-                {products && <Tag size={'m'} color={'grey'}>{products.length}</Tag>}
+                {products && <Tag size={'m'} color={'grey'} aria-label={products.length + 'элементов'}>{products.length}</Tag>}
                 <Sort sort={sort} setSort={setSortValue}/>
             </div>
-            <div>
-                {sortedProducts.map(product => <Product key={product._id} product={product} layout/>)}
+            <div role={'list'}>
+                {sortedProducts.map(product => <Product key={product._id} product={product} layout={!!reducedMotion}/>)}
             </div>
             <div className={styles['hh-header']}>
                 <Htag tag={'h2'}>{`Вакансии - ${category}`}</Htag>
