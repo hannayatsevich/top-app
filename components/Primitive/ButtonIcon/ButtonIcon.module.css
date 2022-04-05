@@ -21,6 +21,10 @@
 	fill: var(--white);
 }
 
+.white .icon {
+	fill: var(--primary);
+}
+
 .primary:hover {
 	background-color: var(--primary-hover);
 }
@@ -31,10 +35,6 @@
 
 .white {
 	background-color: var(--white);
-}
-
-.white .icon {
-	fill: var(--primary);
 }
 
 .white:hover {

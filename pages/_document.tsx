@@ -9,7 +9,7 @@ class MyDocument extends Document {
 
     render(): JSX.Element {
         return (
-            <Html lang="ru">
+            <Html lang="ru" prefix="og: https://ogp.me/ns#">
                 <Head >
                     <link key={1} rel="icon" href="/favicon.ico" />
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
