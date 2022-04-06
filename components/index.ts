@@ -4,6 +4,7 @@ export * from './Layout/Footer/Footer';
 
 export * from './Page/TopPageComponent/TopPageComponent';
 export * from './Page/CategoryPageComponent/CategoryPageComponent';
+export * from './Page/SearchPageComponent/SearchPageComponent';
 
 export * from './Primitive/Htag/Htag';
 export * from './Primitive/Button/Button';

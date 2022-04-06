@@ -4,9 +4,10 @@ import {Htag} from "../components";
 
 export const Error404: React.FC = () => {
     return (
-        <>
-            <Htag tag={'h1'}>Ошибка 404</Htag>
-        </>
+        <div className={'Error404'}>
+            <Htag tag={'h1'}>Упс... Что-то пошло не так</Htag>
+            <Htag tag={'h3'}>Ошибка 404</Htag>
+        </div>
     );
 };
 

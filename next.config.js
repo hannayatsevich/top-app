@@ -5,6 +5,15 @@ module.exports = {
   images: {
     domains: ['courses-top.ru'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/courses',
+        permanent: true,
+      },
+    ]
+  },
   webpack(config, options) {
     config.module.rules.push({
       loader: '@svgr/webpack',
