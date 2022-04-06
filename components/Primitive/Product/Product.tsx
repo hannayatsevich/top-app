@@ -54,29 +54,44 @@ export const Product = motion(forwardRef(({product, className, ...props}: Produc
                     />
                 </div>
                 <div className={styles.title}><Htag tag={'h3'} id={`product-title-${_id}`}>{title}</Htag></div>
-                <div className={styles.price}>
-                    <span className={'hidden-element'}>цена</span>
-                    {getRuPrice(price)}
-                    <span className={'hidden-element'}>скидка</span>
-                    {!!oldPrice && oldPrice - price > 0 && <Tag className={styles['price-tag']} color={'green'}>{getRuPrice(price - oldPrice)}</Tag>}
-                </div>
-                <div className={styles.credit}>
-                    <span className={'hidden-element'}>цена в кредит</span>
-                    {getRuPrice(credit)}
-                    <span className={styles.perm}>/ мес</span>
-                </div>
-                <div className={styles.rating}>
+                { !!price &&
+                    <div className={styles.price}>
+                        <span className={'hidden-element'}>цена</span>
+                        {getRuPrice(price)}
+                        <span className={'hidden-element'}>скидка</span>
+                        {!!oldPrice && oldPrice - price > 0 && <Tag className={styles['price-tag']} color={'green'}>{getRuPrice(price - oldPrice)}</Tag>}
+                    </div>
+                }
+                { !!credit &&
+                    <div className={styles.credit}>
+                        <span className={'hidden-element'}>цена в кредит</span>
+                        {getRuPrice(credit)}
+                        <span className={styles.perm}>/ мес</span>
+                    </div>
+                }
+                <div className={classnames({
+                    [styles['rating-full']]: !price && !credit,
+                    [styles.rating]: !(!price && !credit)
+                })}
+                >
                     <span className={'hidden-element'}>{`рейтинг ${reviewAvg || initialRating}`}</span>
                     <Rating rating={reviewAvg || initialRating}/>
                 </div>
                 <div className={styles.categories}>{categories.map(category => <Tag className={styles.category} key={category}>{category}</Tag>)}</div>
-                <div className={styles['price-title']} aria-hidden={true}>цена</div>
-                <div className={styles['credit-title']} aria-hidden={true}>в кредит</div>
-                <div className={styles['rate-title']}><a href={'#review'} onClick={scrollToReview}>{`${reviewCount} ${getWord(reviewCount, ['отзыв', 'отзыва', 'отзывов'])}`}</a></div>
+                { !!price && <div className={styles['price-title']} aria-hidden={true}>цена</div> }
+                { !!credit && <div className={styles['credit-title']} aria-hidden={true}>в кредит</div> }
+                <div
+                    className={classnames({
+                        [styles['rate-title-full']]: !price && !credit,
+                        [styles['rate-title']]: !(!price && !credit)
+                    })}
+                >
+                    <a href={'#review'} onClick={scrollToReview}>{`${reviewCount} ${getWord(reviewCount, ['отзыв', 'отзыва', 'отзывов'])}`}</a>
+                </div>
                 <Divider className={classnames(styles.divider, styles.divider1)}/>
                 <div className={styles.description}>{description}</div>
                 <div className={styles.characteristics}>
-                    {characteristics.map(characteristic => <div className={styles.characteristic} key={characteristic.name + characteristic.value}>
+                    {characteristics.map(characteristic => !!(characteristic.name && characteristic.value) && <div className={styles.characteristic} key={characteristic.name + characteristic.value}>
                         <span className={styles['characteristic-title']}>{characteristic.name}</span>
                         <span className={styles['characteristic-divider']}/>
                         <span className={styles['characteristic-value']}>{characteristic.value}</span>
@@ -101,7 +116,7 @@ export const Product = motion(forwardRef(({product, className, ...props}: Produc
                 </div>
                 <Divider className={classnames(styles.divider, styles.divider2)}/>
                 <div className={styles.buttons}>
-                    <Link href={product.link}><a tabIndex={-1}><Button>Узнать подробнее</Button></a></Link>
+                    <Link href={product.link}><a tabIndex={-1} target={'_blank'}><Button>Узнать подробнее</Button></a></Link>
                     <Button styleType={'ghost'} arrow={isReviewsOpened ? 'down' : 'right'} onClick={(): void => setIsReviewsOpened(state => !state)} aria-expanded={isReviewsOpened}>
                         Читать отзывы
                     </Button>

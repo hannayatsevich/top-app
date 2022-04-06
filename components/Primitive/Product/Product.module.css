@@ -60,7 +60,8 @@
 	font-size: 12px;
 }
 
-.rating {
+.rating,
+.rating-full {
 	grid-column: ratestart / end;
 
 	align-self: flex-end;
@@ -88,14 +89,16 @@
 	grid-column: creditstart / creditend;
 }
 
-.rate-title {
+.rate-title,
+.rate-title-full {
 	font-size: 14px;
 	font-weight: 300;
 	line-height: 19px;
 	grid-column: ratestart / end;
 }
 
-.rate-title a {
+.rate-title a,
+.rate-title-full a {
 	color: var(--primary);
 }
 
@@ -198,6 +201,8 @@
 			"logo . categories categories categories categories categories"
 			"price price price . credit . rating"
 			"pricetitle pricetitle pricetitle . credittitle . ratingtitle"
+			"ratingfull ratingfull ratingfull ratingfull ratingfull ratingfull ratingfull"
+			"ratingtitlefull ratingtitlefull ratingtitlefull ratingtitlefull ratingtitlefull ratingtitlefull ratingtitlefull"
 			"divider divider divider divider divider divider divider"
 			"description description description description description description description"
 			"characteristics characteristics characteristics characteristics characteristics characteristics characteristics"
@@ -228,6 +233,10 @@
 		grid-area: rating;
 	}
 
+	.rating-full {
+		grid-area: ratingfull;
+	}
+
 	.categories {
 		grid-area: categories;
 
@@ -244,6 +253,10 @@
 
 	.rate-title {
 		grid-area: ratingtitle;
+	}
+
+	.rate-title-full {
+		grid-area: ratingtitlefull;
 	}
 
 	.description {
@@ -284,6 +297,7 @@
 			"pricetitle . price "
 			"credittitle . credit"
 			"ratingtitle . rating"
+			"ratingtitlefull . ratingfull"
 			"divider divider divider"
 			"description description description"
 			"characteristics characteristics characteristics"
@@ -294,7 +308,8 @@
 
 	.price-title,
 	.credit-title,
-	.rate-title {
+	.rate-title,
+	.rate-title-full {
 		align-self: center;
 	}
 }

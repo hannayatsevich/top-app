@@ -1,0 +1,44 @@
+.accordion:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+	padding: 15px;
+
+	cursor: pointer;
+
+	color: var(--black);
+	border: none;
+	background-color: transparent;
+
+	font-family: var(--font-family);
+
+	font-size: 20px;
+	line-height: 27px;
+}
+
+.arrow {
+	display: inline-block;
+
+	margin-left: 10px;
+
+	transition: transform 0.2s;
+}
+
+.arrow-down {
+	transition: transform 0.2s;
+	transform: rotate(90deg);
+}
+
+.content-wrapper {
+	overflow: hidden;
+}
+
+.content {
+	padding: 5px 25px 20px;
+}

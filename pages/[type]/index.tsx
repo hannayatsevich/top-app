@@ -6,6 +6,8 @@ import {TopLevelCategory} from "../../interfaces/page.interface";
 import axios from "axios";
 import {firstLevelMenu} from "../../constants";
 import {API} from "../../helpers/api";
+import {CategoryPageComponent} from "../../components";
+import Head from "next/head";
 
 interface TypePageProps extends Record<string, unknown> {
     menu: IMenuItem[];
@@ -51,12 +53,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
     };
 };
 
-const TypePage: React.FC<TypePageProps> = ({firstCategory}) => {
-  return (
-    <>
-        {`type: ${firstCategory}` }
-    </>
-  );
+const TypePage: React.FC<TypePageProps> = ({firstCategory, menu}) => {
+    const firstLevelMenuItem = firstLevelMenu.find( menu => menu.id === firstCategory);
+
+    return (
+        <>
+            <Head>
+                <title>{firstLevelMenuItem?.name || ''}</title>
+                <meta name={'description'} content={firstLevelMenuItem?.name || ''}/>
+                <meta property={'og:title'} content={firstLevelMenuItem?.name || ''}/>
+                <meta property={'og:description'} content={firstLevelMenuItem?.name || ''}/>
+            </Head>
+            <CategoryPageComponent categories={menu} firstCategory={firstCategory}/>
+        </>
+    );
 };
 
 export default withLayout(TypePage);

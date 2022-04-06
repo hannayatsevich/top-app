@@ -3,6 +3,7 @@ export * from './Layout/Sidebar/Sidebar';
 export * from './Layout/Footer/Footer';
 
 export * from './Page/TopPageComponent/TopPageComponent';
+export * from './Page/CategoryPageComponent/CategoryPageComponent';
 
 export * from './Primitive/Htag/Htag';
 export * from './Primitive/Button/Button';
@@ -21,3 +22,4 @@ export * from './Primitive/Review/Review';
 export * from './Primitive/ReviewForm/ReviewForm';
 export * from './Primitive/Up/Up';
 export * from './Primitive/ButtonIcon/ButtonIcon';
+export * from './Primitive/Accordion/Accordion';

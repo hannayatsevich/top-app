@@ -32,14 +32,8 @@ export const sortReducer = (state: SortState, action: SortActions): SortState =>
                 products: [...state.products].sort((a, b) => a.price - b.price),
             };
         case SortEnum.Reset:
-            // eslint-disable-next-line no-case-declarations
-            // const products = state.sort === SortEnum.Rating
-            //     ? [...action.payload].sort((a, b) => a.initialRating - b.initialRating)
-            //     : state.sort === SortEnum.Price
-            //         ? [...action.payload].sort((a, b) => a.price - b.price)
-            //         : [...action.payload];
             return {
-                sort: state.sort,
+                sort: SortEnum.Reset,
                 products: action.payload,
             };
         default: return state;

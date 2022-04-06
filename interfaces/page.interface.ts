@@ -1,6 +1,6 @@
 export enum TopLevelCategory {
     Courses,
-    // Services,
+    Services,
     // Books,
     // Products
 }

@@ -36,11 +36,13 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
             <div role={'list'}>
                 {sortedProducts.map(product => <Product key={product._id} product={product} layout={!!reducedMotion}/>)}
             </div>
-            <div className={styles['hh-header']}>
-                <Htag tag={'h2'}>{`Вакансии - ${category}`}</Htag>
-                <Tag size={'m'} color={'red'}>hh.ru</Tag>
-            </div>
-            {firstCategory === TopLevelCategory.Courses && hh && <HhData {...hh}/>}
+            {firstCategory === TopLevelCategory.Courses && hh && <>
+                <div className={styles['hh-header']}>
+                    <Htag tag={'h2'}>{`Вакансии - ${category}`}</Htag>
+                    <Tag size={'m'} color={'red'}>hh.ru</Tag>
+                </div>
+                <HhData {...hh}/>
+            </>}
             {!!advantages.length && (
                 <>
                     <Htag tag={'h2'}>Преимущества</Htag>
@@ -48,10 +50,12 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
                 </>
             )}
             {seoText && <div className={styles['seo-text']} dangerouslySetInnerHTML={{__html: seoText}}/>}
-            <Htag tag={'h2'}>Получаемые навыки</Htag>
-            <div className={styles.tags}>
-                {tags.map(tag => <Tag key={tag} size={'s'} color={'primary'}>{tag}</Tag>)}
-            </div>
+            {firstCategory === TopLevelCategory.Courses && <>
+                <Htag tag={'h2'}>Получаемые навыки</Htag>
+                <div className={styles.tags}>
+                    {tags.map(tag => <Tag key={tag} size={'s'} color={'primary'}>{tag}</Tag>)}
+                </div>
+            </>}
         </div>
     );
 };
