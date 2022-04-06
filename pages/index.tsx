@@ -5,6 +5,7 @@ import React from "react";
 import axios from "axios";
 import {IMenuItem} from "../interfaces/menu.interface";
 import {TopLevelCategory} from "../interfaces/page.interface";
+import Error from "next/error";
 
 interface HomePageProps extends Record<string, unknown> {
     menu: IMenuItem[];
@@ -47,6 +48,7 @@ const Home: React.FC<HomePageProps> = () => {
       <ButtonIcon icon={'up'} styleType={'white'}/>
       <ButtonIcon icon={'close'} styleType={'white'}/>
       <ButtonIcon icon={'menu'} styleType={'white'}/>
+      <Error statusCode={404}/>
     </>
   );
 };

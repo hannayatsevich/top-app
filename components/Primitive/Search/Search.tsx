@@ -5,6 +5,7 @@ import {Input, Button} from "../../../components";
 import SearchIcon from './search.svg';
 import {ChangeEvent, KeyboardEvent, useState} from "react";
 import {useRouter} from "next/router";
+import Link from "next/link";
 
 export const Search = ({className, ...props}: SearchProps):JSX.Element => {
     const [searchValue, setSearchValue] = useState<string>('');
@@ -29,13 +30,16 @@ export const Search = ({className, ...props}: SearchProps):JSX.Element => {
                 value={searchValue}
                 aria-label={'Введите строку поиска'}
             />
-            <Button
-                className={styles.button}
-                onClick={goToSearch}
-                aria-label={'Искать по сайту'}
-            >
-                <SearchIcon/>
-            </Button>
+            <Link href={`/search?q=${encodeURI(searchValue)}`} >
+                <a tabIndex={-1}>
+                    <Button
+                        className={styles.button}
+                        aria-label={'Искать по сайту'}
+                    >
+                        <SearchIcon/>
+                    </Button>
+                </a>
+            </Link>
         </form>
     );
 };

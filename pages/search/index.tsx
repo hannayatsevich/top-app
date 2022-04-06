@@ -4,6 +4,8 @@ import React from "react";
 import {IMenuItem} from "../../interfaces/menu.interface";
 import {TopLevelCategory} from "../../interfaces/page.interface";
 import axios from "axios";
+import {useRouter} from "next/router";
+import {API} from "../../helpers/api";
 
 interface SearchPageProps extends Record<string, unknown> {
     menu: IMenuItem[];
@@ -12,7 +14,7 @@ interface SearchPageProps extends Record<string, unknown> {
 
 export const getStaticProps: GetStaticProps<SearchPageProps> = async () => {
     const firstCategory = TopLevelCategory.Courses;
-    const {data: menu} = await axios.post<IMenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
+    const {data: menu} = await axios.post<IMenuItem[]>(API.toppage.find, {
         firstCategory
     });
     return {

@@ -10,6 +10,7 @@ import {firstLevelMenu} from "../../constants";
 import {TopPageComponent} from "../../components";
 import {API} from "../../helpers/api";
 import Head from "next/head";
+import {Error404} from "../404";
 
 interface AliasPageProps extends Record<string, unknown> {
     menu: IMenuItem[];
@@ -77,21 +78,23 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 const AliasPage: React.FC<AliasPageProps> = ({ firstCategory, page, products}) => {
+    if(!page || !products)
+        return <Error404/>;
+
     return (
-        page ?
-            <>
-                <Head>
-                    <title>{page.metaTitle}</title>
-                    <meta name={'description'} content={page.metaDescription}/>
-                    <meta property={'og:title'} content={page.metaTitle}/>
-                    <meta property={'og:description'} content={page.metaDescription}/>
-                </Head>
-                <TopPageComponent
-                    firstCategory={firstCategory}
-                    page={page}
-                    products={products}
-                />
-            </> : <></>
+        <>
+            <Head>
+                <title>{page.metaTitle}</title>
+                <meta name={'description'} content={page.metaDescription}/>
+                <meta property={'og:title'} content={page.metaTitle}/>
+                <meta property={'og:description'} content={page.metaDescription}/>
+            </Head>
+            <TopPageComponent
+                firstCategory={firstCategory}
+                page={page}
+                products={products}
+            />
+        </>
     );
 };
 
