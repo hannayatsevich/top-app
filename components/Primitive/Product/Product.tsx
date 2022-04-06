@@ -53,7 +53,7 @@ export const Product = motion(forwardRef(({product, className, ...props}: Produc
                         height={70}
                     />
                 </div>
-                <div className={styles.title}><Htag tag={'h3'} id={'product-title'}>{title}</Htag></div>
+                <div className={styles.title}><Htag tag={'h3'} id={`product-title-${_id}`}>{title}</Htag></div>
                 <div className={styles.price}>
                     <span className={'hidden-element'}>цена</span>
                     {getRuPrice(price)}

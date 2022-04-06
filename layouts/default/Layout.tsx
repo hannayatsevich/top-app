@@ -24,14 +24,14 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
 
     return (
         <div className={styles['page-wrapper']}>
-            <a
-                tabIndex={1}
+            <button
+                tabIndex={0}
                 className={classnames(styles['skip-link'], {
                     [styles['skip-link-visible']]: isSkipLinkVisible
                 })}
                 onFocus={ ():void => setIsSkipLinkVisible(true)}
                 onKeyDown={skipContentAction}
-            >Сразу к содержанию</a>
+            >Сразу к содержанию</button>
             <Header className={styles.header}/>
             <Sidebar className={styles.sidebar}/>
             <main className={styles.main} ref={mainRef} tabIndex={0} role={'main'}>

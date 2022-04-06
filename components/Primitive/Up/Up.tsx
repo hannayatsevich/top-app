@@ -29,7 +29,7 @@ export const Up = ():JSX.Element => {
             animate={controls}
             initial={{opacity: 0}}
         >
-            <ButtonIcon icon={'up'} onClick={scrollTop}/>
+            <ButtonIcon icon={'up'} onClick={scrollTop} aria-label={'Наверх'}/>
         </motion.div>
     );
 };
