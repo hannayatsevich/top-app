@@ -4,7 +4,7 @@ import React from "react";
 import axios from "axios";
 import {IMenuItem} from "../../interfaces/menu.interface";
 import {ITopPageModel, TopLevelCategory} from "../../interfaces/page.interface";
-import {ParsedUrlQuery} from "node:querystring";
+import {ParsedUrlQuery} from "querystring";
 import {IProductModel} from "../../interfaces/product.interface";
 import {firstLevelMenu} from "../../constants";
 import {TopPageComponent} from "../../components";
