@@ -34,7 +34,7 @@ export const TopPageComponent = ({page, products, firstCategory}: TopPageCompone
                 <Sort sort={sort} setSort={setSortValue}/>
             </div>
             <div role={'list'}>
-                {sortedProducts.map(product => <Product key={product._id} product={product} layout={!!reducedMotion}/>)}
+                {sortedProducts.map(product => <Product key={product._id} product={product} layout={!reducedMotion}/>)}
             </div>
             {firstCategory === TopLevelCategory.Courses && hh && <>
                 <div className={styles['hh-header']}>
