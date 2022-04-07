@@ -1,9 +1,9 @@
-import styles from './Review.module.css';
 import classnames from "classnames";
-import {ReviewProps} from "./Review.props";
-import {getRuDate} from "../../../helpers";
 import {Rating, Divider} from "../../../components";
+import styles from './Review.module.css';
+import {ReviewProps} from "./Review.props";
 import UserIcon from './user.svg';
+import {getRuDate} from "@/helpers/index";
 
 export const Review = ({review, className, ...props}: ReviewProps):JSX.Element => {
     const {name, title, createdAt, rating, description} = review;

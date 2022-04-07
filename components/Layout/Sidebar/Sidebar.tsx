@@ -1,10 +1,9 @@
+import classnames from "classnames";
+import React from "react";
 import {SidebarProps} from "./Sidebar.props";
 import styles from './Sidebar.module.css';
-import classnames from "classnames";
-import {Menu} from "../../Primitive/Menu/Menu";
-import React from "react";
-import Logo from '../../../public/logo.svg';
-import {Search} from "../../Primitive/Search/Search";
+import Logo from '@/public/logo.svg';
+import {Search, Menu} from "@/components/index";
 
 
 export const Sidebar: React.FC<SidebarProps> = ({className,...props}) => {

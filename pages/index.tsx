@@ -1,11 +1,11 @@
-import {Button, ButtonIcon, Htag, Input, Paragraph, Rating, Tag, Textarea, Up} from '../components';
-import {withLayout} from "../layouts/default/Layout";
 import {GetStaticProps} from "next";
 import React from "react";
 import axios from "axios";
-import {IMenuItem} from "../interfaces/menu.interface";
-import {TopLevelCategory} from "../interfaces/page.interface";
 import Error from "next/error";
+import {Button, ButtonIcon, Htag, Input, Paragraph, Rating, Tag, Textarea, Up} from '@/components/index';
+import {withLayout} from "@/layouts/default/Layout";
+import {IMenuItem} from "@/interfaces/menu.interface";
+import {TopLevelCategory} from "@/interfaces/page.interface";
 
 interface HomePageProps extends Record<string, unknown> {
     menu: IMenuItem[];

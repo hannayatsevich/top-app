@@ -1,16 +1,11 @@
-import {withLayout} from "../../layouts/default/Layout";
 import {GetStaticProps} from "next";
 import React from "react";
-import {IMenuItem} from "../../interfaces/menu.interface";
-import {TopLevelCategory} from "../../interfaces/page.interface";
 import axios from "axios";
-import {API} from "../../helpers/api";
-import {SearchPageComponent} from "../../components";
-
-export interface IFirstCategory extends Record<string, unknown> {
-    firstCategory: TopLevelCategory,
-    menu: IMenuItem[];
-}
+import {withLayout} from "@/layouts/default/Layout";
+import {IMenuItem} from "@/interfaces/menu.interface";
+import {IFirstCategory, TopLevelCategory} from "@/interfaces/page.interface";
+import {API} from "@/helpers/api";
+import {SearchPageComponent} from "@/components/index";
 
 interface SearchPageProps extends Record<string, unknown> {
     menu: IMenuItem[];

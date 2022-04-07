@@ -1,5 +1,5 @@
-import styles from './Sort.module.css';
 import classnames from "classnames";
+import styles from './Sort.module.css';
 import {SortEnum, SortProps} from "./Sort.props";
 import SortIcon from './sort.svg';
 

@@ -1,11 +1,11 @@
-import {SearchProps} from "./Search.props";
-import styles from './Search.module.css';
 import classnames from "classnames";
-import {Input, Button} from "../../../components";
-import SearchIcon from './search.svg';
 import {ChangeEvent, KeyboardEvent, useState} from "react";
 import {useRouter} from "next/router";
 import Link from "next/link";
+import SearchIcon from './search.svg';
+import styles from './Search.module.css';
+import {SearchProps} from "./Search.props";
+import {Input, Button} from "@/components/index";
 
 export const Search = ({className, ...props}: SearchProps):JSX.Element => {
     const [searchValue, setSearchValue] = useState<string>('');

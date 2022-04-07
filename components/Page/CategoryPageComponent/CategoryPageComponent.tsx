@@ -1,10 +1,9 @@
-import {CategoryPageComponentProps} from "./CategoryPageComponent.props";
 import React, {useState} from "react";
-import styles from './CategoryPageComponent.module.css';
-import {Accordion} from "../../Primitive/Accordion/Accordion";
-import {Htag} from "../../Primitive/Htag/Htag";
-import {firstLevelMenu} from "../../../constants";
 import Link from 'next/link';
+import {CategoryPageComponentProps} from "./CategoryPageComponent.props";
+import styles from './CategoryPageComponent.module.css';
+import {Accordion, Htag} from "@/components/index";
+import {firstLevelMenu} from "@/constants/index";
 
 export const CategoryPageComponent: React.FC<CategoryPageComponentProps> = ({categories, firstCategory}) => {
     const firstLevelMenuItem = firstLevelMenu.find( menu => menu.id === firstCategory);

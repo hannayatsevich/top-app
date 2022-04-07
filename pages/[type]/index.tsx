@@ -1,13 +1,13 @@
-import {withLayout} from "../../layouts/default/Layout";
 import {GetStaticPaths, GetStaticProps} from "next";
 import React from "react";
-import {IMenuItem} from "../../interfaces/menu.interface";
-import {TopLevelCategory} from "../../interfaces/page.interface";
 import axios from "axios";
-import {firstLevelMenu} from "../../constants";
-import {API} from "../../helpers/api";
-import {CategoryPageComponent} from "../../components";
 import Head from "next/head";
+import {withLayout} from "@/layouts/default/Layout";
+import {IMenuItem} from "@/interfaces/menu.interface";
+import {TopLevelCategory} from "@/interfaces/page.interface";
+import {firstLevelMenu} from "@/constants/index";
+import {API} from "@/helpers/api";
+import {CategoryPageComponent} from "@/components/index";
 
 interface TypePageProps extends Record<string, unknown> {
     menu: IMenuItem[];

@@ -1,6 +1,6 @@
-import {withLayout} from "../layouts/default/Layout";
 import React from "react";
-import {Htag} from "../components";
+import {withLayout} from "@/layouts/default/Layout";
+import {Htag} from "@/components/index";
 
 const Error500: React.FC = () => {
     return (

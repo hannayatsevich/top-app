@@ -1,8 +1,8 @@
-import {ButtonProps} from "./Button.props";
 import classnames from "classnames";
+import {motion} from "framer-motion";
+import {ButtonProps} from "./Button.props";
 import styles from './Button.module.css';
 import ArrowIcon from './arrow.svg';
-import {motion} from "framer-motion";
 
 export const Button = ({styleType = 'primary', arrow = 'none', children, className, ...props}: ButtonProps):JSX.Element => {
 

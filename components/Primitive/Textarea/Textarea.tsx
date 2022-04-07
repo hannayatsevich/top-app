@@ -1,7 +1,7 @@
-import {TextareaProps} from "./Textarea.props";
-import styles from './Textarea.module.css';
 import classnames from "classnames";
 import React, {ForwardedRef, forwardRef} from "react";
+import {TextareaProps} from "./Textarea.props";
+import styles from './Textarea.module.css';
 
 export const Textarea = forwardRef(({isEditable = true, error, className, ...props}: TextareaProps, ref: ForwardedRef<HTMLTextAreaElement>):JSX.Element => {
     return (

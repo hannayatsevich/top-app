@@ -1,12 +1,11 @@
-import {HeaderProps} from "./Header.props";
-import styles from './Header.module.css';
 import classnames from "classnames";
-import Logo from "../../../public/logo.svg";
 import React, {useEffect, useState} from "react";
-import {ButtonIcon} from "../../Primitive/ButtonIcon/ButtonIcon";
-import {Sidebar} from "../Sidebar/Sidebar";
 import {motion, useReducedMotion} from "framer-motion";
 import {useRouter} from "next/router";
+import {HeaderProps} from "./Header.props";
+import styles from './Header.module.css';
+import Logo from "@/public/logo.svg";
+import {ButtonIcon, Sidebar} from "@/components//index";
 
 export const Header = ({className, ...props}: HeaderProps):JSX.Element => {
     const router = useRouter();

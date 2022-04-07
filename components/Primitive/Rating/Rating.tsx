@@ -1,8 +1,8 @@
+import classnames from "classnames";
+import React, {Fragment, useEffect, useState, KeyboardEvent, forwardRef, ForwardedRef, useRef} from "react";
 import {RatingProps} from "./Rating.props";
 import StarIcon from "./star.svg";
 import styles from './Rating.module.css';
-import classnames from "classnames";
-import React, {Fragment, useEffect, useState, KeyboardEvent, forwardRef, ForwardedRef, useRef} from "react";
 
 export const Rating = forwardRef(({isEditable = false, rating, setRating, error, errors, className, tabIndex, ...props}: RatingProps, ref: ForwardedRef<HTMLDivElement>):JSX.Element => {
     const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));

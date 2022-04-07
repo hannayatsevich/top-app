@@ -1,13 +1,13 @@
-import {MenuProps} from "./Menu.props";
 import React, {useContext, KeyboardEvent, useState} from "react";
 import classnames from "classnames";
 import Link from "next/link";
 import { useRouter } from 'next/router';
-import {AppContext, IAppContext} from "../../../contexts/app.context";
-import {FirstLevelMenuItem, IPageItem} from "../../../interfaces/menu.interface";
-import styles from './Menu.module.css';
-import {firstLevelMenu} from "../../../constants";
 import {motion, useReducedMotion} from "framer-motion";
+import styles from './Menu.module.css';
+import {MenuProps} from "./Menu.props";
+import {AppContext, IAppContext} from "@/contexts/app.context";
+import {FirstLevelMenuItem, IPageItem} from "@/interfaces/menu.interface";
+import {firstLevelMenu} from "@/constants/index";
 
 export const Menu: React.FC<MenuProps> = () => {
     const [announce, setAnnounce] = useState<'closed' | 'opened' | undefined >();

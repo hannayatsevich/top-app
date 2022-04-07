@@ -31,13 +31,20 @@
       }
     ],
     "no-duplicate-imports": ["error", { "includeExports": false }],
-    "unused-imports/no-unused-imports-ts": 2
+    "unused-imports/no-unused-imports-ts": 2,
+    "import/order": [
+      "error", {
+        "groups": ["builtin", "external", "parent", "sibling", "index"]
+      }
+    ]
   },
 
   "extends": [
     "eslint:recommended",
     "next/core-web-vitals",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript"
   ]
 }

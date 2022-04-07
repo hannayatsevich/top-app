@@ -1,5 +1,5 @@
-import {ButtonIconProps, icons} from "./ButtonIcon.props";
 import classnames from "classnames";
+import {ButtonIconProps, icons} from "./ButtonIcon.props";
 import styles from './ButtonIcon.module.css';
 
 export const ButtonIcon = ({styleType = 'primary', icon = 'close', className, ...props}: ButtonIconProps):JSX.Element => {

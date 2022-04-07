@@ -1,16 +1,16 @@
-import {withLayout} from "../../layouts/default/Layout";
+import {ParsedUrlQuery} from "querystring";
 import {GetStaticPaths, GetStaticProps, GetStaticPropsContext} from "next";
 import React from "react";
 import axios from "axios";
-import {IMenuItem} from "../../interfaces/menu.interface";
-import {ITopPageModel, TopLevelCategory} from "../../interfaces/page.interface";
-import {ParsedUrlQuery} from "querystring";
-import {IProductModel} from "../../interfaces/product.interface";
-import {firstLevelMenu} from "../../constants";
-import {TopPageComponent} from "../../components";
-import {API} from "../../helpers/api";
 import Head from "next/head";
 import {Error404} from "../404";
+import {withLayout} from "@/layouts/default/Layout";
+import {IMenuItem} from "@/interfaces/menu.interface";
+import {ITopPageModel, TopLevelCategory} from "@/interfaces/page.interface";
+import {IProductModel} from "@/interfaces/product.interface";
+import {firstLevelMenu} from "@/constants/index";
+import {TopPageComponent} from "@/components/index";
+import {API} from "@/helpers/api";
 
 interface AliasPageProps extends Record<string, unknown> {
     menu: IMenuItem[];

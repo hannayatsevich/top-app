@@ -1,12 +1,12 @@
-import {ProductProps} from "./Product.props";
-import styles from './Product.module.css';
-import {Htag, Card, Button, Tag, Rating, Divider, Review, ReviewForm} from "../../../components";
 import Link from 'next/link';
 import Image from 'next/image';
 import {ForwardedRef, forwardRef, useRef, useState} from "react";
-import {getRuPrice, getWord} from "../../../helpers";
 import classnames from "classnames";
 import {motion} from 'framer-motion';
+import styles from './Product.module.css';
+import {ProductProps} from "./Product.props";
+import {getRuPrice, getWord} from "@/helpers/index";
+import {Htag, Card, Button, Tag, Rating, Divider, Review, ReviewForm} from "@/components/index";
 
 // eslint-disable-next-line react/display-name
 export const Product = motion(forwardRef(({product, className, ...props}: ProductProps, ref: ForwardedRef<HTMLDivElement>):JSX.Element => {

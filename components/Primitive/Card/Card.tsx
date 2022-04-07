@@ -1,7 +1,7 @@
-import styles from './Card.module.css';
 import classnames from "classnames";
-import {CardProps} from "./Card.props";
 import {ForwardedRef, forwardRef} from "react";
+import styles from './Card.module.css';
+import {CardProps} from "./Card.props";
 
 export const Card = forwardRef(({color = 'white', className, children, ...props}: CardProps, ref: ForwardedRef<HTMLDivElement>):JSX.Element => {
     return (

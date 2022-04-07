@@ -1,5 +1,5 @@
-import {TopLevelCategory} from "./page.interface";
 import {ReactNode} from "react";
+import {TopLevelCategory} from "./page.interface";
 
 export interface IPageItem {
     alias: string;

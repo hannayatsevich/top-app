@@ -1,8 +1,8 @@
-import {FooterProps} from "./Footer.props";
 import Link from "next/link";
-import styles from './Footer.module.css';
 import classnames from "classnames";
-import {getRuYear} from "../../../helpers";
+import styles from './Footer.module.css';
+import {FooterProps} from "./Footer.props";
+import {getRuYear} from "@/helpers/index";
 
 export const Footer = ({className, ...props}: FooterProps):JSX.Element => {
     return (

@@ -1,12 +1,11 @@
-import {SearchPageComponentProps} from "./SearchPageComponent.props";
 import React, {useEffect, useState} from "react";
 import Link from "next/link";
-import styles from './SearchPageComponent.module.css';
 import {useRouter} from "next/router";
-import {Htag} from "../../Primitive/Htag/Htag";
-import {getWord} from "../../../helpers";
-import {firstLevelMenu} from "../../../constants";
-import {Button} from "../../Primitive/Button/Button";
+import styles from './SearchPageComponent.module.css';
+import {SearchPageComponentProps} from "./SearchPageComponent.props";
+import {Htag, Button} from "@/components/index";
+import {getWord} from "@/helpers/index";
+import {firstLevelMenu} from "@/constants/index";
 
 interface ISearchResult {
     title: string;

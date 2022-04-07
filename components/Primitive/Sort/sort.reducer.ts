@@ -1,5 +1,5 @@
 import {SortEnum} from "./Sort.props";
-import {IProductModel} from "../../../interfaces/product.interface";
+import {IProductModel} from "@/interfaces/product.interface";
 
 interface ISortRatingAction {
     type: SortEnum.Rating

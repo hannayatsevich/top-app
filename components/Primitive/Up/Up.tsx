@@ -1,9 +1,10 @@
-import styles from './Up.module.css';
 import classnames from "classnames";
-import {useScrollY} from "../../../hooks/useScrollY";
 import {motion, useAnimation} from "framer-motion";
 import {useEffect} from "react";
-import {ButtonIcon} from "../ButtonIcon/ButtonIcon";
+import styles from './Up.module.css';
+import {useScrollY} from "@/hooks/useScrollY";
+import {ButtonIcon} from "@/components/index";
+
 
 export const Up = ():JSX.Element => {
     const controls = useAnimation();

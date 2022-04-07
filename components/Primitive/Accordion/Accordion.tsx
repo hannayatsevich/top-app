@@ -1,10 +1,10 @@
-import {AccordionProps} from "./Accordion.props";
-import styles from './Accordion.module.css';
 import classnames from "classnames";
 import {useEffect, useState} from "react";
-import ArrowIcon from "./arrow.svg";
-import {Card} from "../Card/Card";
 import {motion, useReducedMotion} from "framer-motion";
+import {AccordionProps} from "./Accordion.props";
+import styles from './Accordion.module.css';
+import ArrowIcon from "./arrow.svg";
+import {Card} from "@/components/index";
 
 export const Accordion = ({controllable = false, id, isOpened = false, setStatus, heading, children, className}: AccordionProps):JSX.Element => {
     const reducedMotion = useReducedMotion();

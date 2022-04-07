@@ -1,15 +1,11 @@
-import {TopPageComponentProps} from "./TopPageComponent.props";
-import {Htag} from "../../Primitive/Htag/Htag";
-import {Tag} from "../../Primitive/Tag/Tag";
-import styles from './TopPageCompoent.module.css';
-import {HhData} from "../../Primitive/HhData/HhData";
-import {TopLevelCategory} from "../../../interfaces/page.interface";
-import {Advantages} from "../../Primitive/Advantages/Advantages";
-import {Product, Sort} from "../../../components";
-import {PureSortEnum, SortEnum} from "../../Primitive/Sort/Sort.props";
 import {useEffect, useReducer} from "react";
-import {sortReducer} from "../../Primitive/Sort/sort.reducer";
 import {useReducedMotion} from "framer-motion";
+import {TopPageComponentProps} from "./TopPageComponent.props";
+import styles from './TopPageCompoent.module.css';
+import {TopLevelCategory} from "@/interfaces/page.interface";
+import {Product, Sort, Htag, Tag, HhData, Advantages} from "@/components/index";
+import {PureSortEnum, SortEnum} from "@/components/Primitive/Sort/Sort.props";
+import {sortReducer} from "@/components/Primitive/Sort/sort.reducer";
 
 
 export const TopPageComponent = ({page, products, firstCategory}: TopPageComponentProps):JSX.Element => {

@@ -1,9 +1,9 @@
-import {LayoutProps} from "./Layout.props";
-import {Header, Sidebar, Footer, Up} from "../../components";
 import React, {FunctionComponent, useState, KeyboardEvent, useRef} from "react";
-import styles from './Layout.module.css';
-import {AppContextProvider, IAppContext} from "../../contexts/app.context";
 import classnames from "classnames";
+import {LayoutProps} from "./Layout.props";
+import styles from './Layout.module.css';
+import {Header, Sidebar, Footer, Up} from "@/components/index";
+import {AppContextProvider, IAppContext} from "@/contexts/app.context";
 
 export const Layout: React.FC<LayoutProps> = ({children}) => {
     const mainRef = useRef<HTMLDivElement>(null);

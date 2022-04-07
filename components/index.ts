@@ -24,3 +24,5 @@ export * from './Primitive/ReviewForm/ReviewForm';
 export * from './Primitive/Up/Up';
 export * from './Primitive/ButtonIcon/ButtonIcon';
 export * from './Primitive/Accordion/Accordion';
+export * from './Primitive/Advantages/Advantages';
+export * from './Primitive/Menu/Menu';

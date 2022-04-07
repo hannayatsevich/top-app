@@ -1,3 +1,5 @@
+import {IMenuItem} from "@/interfaces/menu.interface";
+
 export enum TopLevelCategory {
     Courses,
     Services,
@@ -48,4 +50,9 @@ export interface ITopPageModel {
     addresses: any[];
     categoryOn: string;
     blog: IPageBlog;
+}
+
+export interface IFirstCategory extends Record<string, unknown> {
+    firstCategory: TopLevelCategory,
+    menu: IMenuItem[];
 }
