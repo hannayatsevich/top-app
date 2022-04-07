@@ -3,29 +3,41 @@
   "parser": "@typescript-eslint/parser",
   "plugins": [
     "@typescript-eslint",
-    "react-hooks"
+    "unused-imports"
   ],
   "rules": {
     "@typescript-eslint/explicit-function-return-type": ["error"],
     "semi": "off",
-    "@typescript-eslint/semi": [
-      "warn"
-    ],
-    "@typescript-eslint/no-empty-interface": [
+    "@typescript-eslint/semi": ["warn"],
+    "@typescript-eslint/no-empty-interface": [ // aims to ensure that only meaningful interfaces are declared in the code.
       "error",
       {
-        "allowSingleExtends": true
+        "allowSingleExtends": true // will silence warnings about extending a single interface without adding additional members
       }
     ],
     "@typescript-eslint/no-explicit-any": "off",
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-    "react-hooks/exhaustive-deps": "error" // Checks effect dependencies
+    "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
+
+    "array-callback-return": ["error"], // Enforces return statements in callbacks of array's methods.
+    "arrow-spacing": ["error", { "before": true, "after": true }],
+    "jsx-quotes": ["warn", "prefer-double"],
+    "key-spacing": [
+      "error",
+      {
+        "beforeColon": false,
+        "afterColon": true,
+        "mode": "strict"
+      }
+    ],
+    "no-duplicate-imports": ["error", { "includeExports": false }],
+    "unused-imports/no-unused-imports-ts": 2
   },
 
   "extends": [
     "eslint:recommended",
+    "next/core-web-vitals",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:@typescript-eslint/recommended"
   ]
 }

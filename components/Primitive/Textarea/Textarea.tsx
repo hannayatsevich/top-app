@@ -18,3 +18,5 @@ export const Textarea = forwardRef(({isEditable = true, error, className, ...pro
         </div>
     );
 });
+
+Textarea.displayName = 'Textarea';

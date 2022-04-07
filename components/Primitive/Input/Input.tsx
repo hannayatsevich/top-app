@@ -18,3 +18,5 @@ export const Input = forwardRef(({isEditable = true, error, className, ...props}
         </div>
     );
 });
+
+Input.displayName = 'Input';

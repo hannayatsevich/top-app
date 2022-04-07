@@ -15,7 +15,7 @@ import {useReducedMotion} from "framer-motion";
 export const TopPageComponent = ({page, products, firstCategory}: TopPageComponentProps):JSX.Element => {
     const {title, hh, advantages = [], category, tags, seoText} = page;
 
-    const [{sort, products: sortedProducts}, dispatch] = useReducer(sortReducer, {sort: SortEnum.Reset, products:  products || []});
+    const [{sort, products: sortedProducts}, dispatch] = useReducer(sortReducer, {sort: SortEnum.Reset, products: products || []});
     const reducedMotion = useReducedMotion();
     
     const setSortValue = (sort: PureSortEnum): void => {

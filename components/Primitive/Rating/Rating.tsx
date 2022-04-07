@@ -94,3 +94,5 @@ export const Rating = forwardRef(({isEditable = false, rating, setRating, error,
         </div>
     );
 });
+
+Rating.displayName = 'Rating';

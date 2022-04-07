@@ -8,6 +8,7 @@ import {getRuPrice, getWord} from "../../../helpers";
 import classnames from "classnames";
 import {motion} from 'framer-motion';
 
+// eslint-disable-next-line react/display-name
 export const Product = motion(forwardRef(({product, className, ...props}: ProductProps, ref: ForwardedRef<HTMLDivElement>):JSX.Element => {
     const reviewVariants = {
         visible: {
@@ -142,3 +143,4 @@ export const Product = motion(forwardRef(({product, className, ...props}: Produc
         </div>
     );
 }));
+Product.displayName = 'Product';
